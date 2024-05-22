@@ -26,13 +26,13 @@ h2,
 }
 h3,
 .text-3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin: 0;
 }
 h4,
 p,
 .text-4 {
-  font-size: 19px;
+  font-size: 1.1rem;
 }
 
 a {
@@ -61,7 +61,7 @@ body {
     font-size: 1.8rem;
   }
   .text-1 {
-    font-size: 2.4rem;
+    font-size: 2.1rem;
   }
 }
 
@@ -86,18 +86,28 @@ body {
   cursor: pointer;
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .menu ul {
   padding: 0;
-  margin: 0;
+  margin-right: 15px;
 }
 .menu li {
   display: inline-block;
 }
 .menu a {
   padding: 10px 15px;
-  display: block;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+
+.menu__button {
+  display: block;
 }
 .button {
   background-color: #21b0af;
@@ -137,10 +147,14 @@ body {
     /* z-index: 9999; */
   }
 
+  nav {
+    display: block;
+  }
+
   .menu {
     position: absolute;
     height: 100vh;
-    top: 85px;
+    top: 80px;
     right: -100%;
     width: 100%;
     background: #ffffff;
@@ -149,15 +163,23 @@ body {
   }
 
   .menu li {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     width: 100%;
     padding: 20px 15px;
   }
 
-  .header .button {
-    position: absolute;
-    top: 22px;
-    right: 70px;
+ .menu  a.button {
+    margin-left: 28px;
   }
+
+  menu.button {
+    position: absolute;
+    top: 250px;
+    left: 20px;
+  }
+
   img.logo {
     width: 150px;
   }
@@ -219,19 +241,17 @@ body {
   height: auto;
 }
 .hero__img img {
-  border-radius: 10px;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
   .hero {
     padding: 3% 3%;
   }
-  .hero__text h1 {
-    font-size: 2.8rem;
-  }
 
   .hero__text p {
     font-size: 1.1rem;
+    margin: 15px 0 25px 0;
   }
 
   .hero__img {
@@ -300,6 +320,9 @@ body {
   .hero__img {
     width: 100%;
   }
+  .spacer-t {
+    margin-top: 0 !important;
+  }
 }
 
 .img-res {
@@ -321,6 +344,9 @@ body {
 
 .line-height {
   line-height: 26px;
+}
+.rounder {
+  border-radius: 10px;
 }
 .p-1 {
   padding: 10px;
@@ -347,7 +373,9 @@ body {
 .pb-3 {
   padding-bottom: 60px;
 }
-
+.pl-0 {
+  padding-left: 0;
+}
 .pl-1 {
   padding-left: 10px;
 }
@@ -412,6 +440,27 @@ body {
   z-index: 100;
 }
 
+.banner--page {
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(/img/banner.jpg) center center no-repeat;
+  background-size: cover;
+  color: #fff;
+  position: relative;
+  margin-top: 130px;
+}
+.overlay--page {
+  height: 30vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 6) 100%);
+}
+
 @media (max-width: 768px) {
 
   .banner__text p {
@@ -457,8 +506,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(/img/cta.jpg) no-repeat center center;
-  background-size: cover;
+  /* background: url(/img/cta.jpg) no-repeat center center; */
+  /* background-size: cover; */
   color: #fff;
   position: relative;
   padding: 10%;
@@ -468,13 +517,15 @@ body {
   text-align: center;
   max-width: 1000px;
   z-index: 100;
+  color: #000;
 }
 
 .acc-title{cursor: pointer;background: #21b0af;padding: 20px;margin-bottom: 0;border-bottom:1px solid #fff;position: relative;color: #fff;}
-.acc-panel{max-height: 0;overflow:hidden;border: 1px solid #21b0af; transition: all 0.8s cubic-bezier(.215, .61, .355, 1);}
+.acc-panel{max-height: 0;overflow:hidden; transition: all 0.8s cubic-bezier(.215, .61, .355, 1);}
 .acc-panel p{padding: 20px;}
-.acc-panel--show{max-height:800px;}
+.acc-panel--show{max-height:800px;border: 1px solid #21b0af}
 .acc-title img {position: absolute; top: 20px;right: 20px; width: 30px;filter: invert(1);}
+#accondion h2{padding: 0 20px;}
 
 @media (max-width: 768px) {
   .acc-title{font-size: 18px;}
@@ -483,18 +534,16 @@ body {
 
 /* FORM */
 .contact-form {
-  background: #fae5d7;
+  border: 1px solid #21b0af;
   width: 40%;
   margin: 0 auto;
-  height: 90vh;
+  height: 85vh;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 1%;
+  padding: 15px;
   border-radius: 5px;
   margin-top: 50px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 .contact-form label {
   display: block;
@@ -521,13 +570,12 @@ textarea {
   border: none;
   padding: 15px 35px;
   cursor: pointer;
-  box-shadow: 0 2px 5px #b31557;
 }
 
 @media (max-width: 768px) {
   .contact-form {
     width: 90%;
-    height: 100vh;
+    height: 90vh;
   }
 
   .contact-form label {
